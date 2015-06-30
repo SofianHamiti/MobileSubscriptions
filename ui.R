@@ -1,8 +1,11 @@
 require(shiny)
 
 shinyUI(pageWithSidebar(
+        #title
         titlePanel("Mobile Subscriptions in the world (United Nations)"),
+        #slider panel
         sidebarPanel(
+                #input bar to slect year
                 sliderInput("Year", 
                             "Year to be displayed:", 
                             min=1998, 
@@ -13,11 +16,11 @@ shinyUI(pageWithSidebar(
         ),
         
         mainPanel(
+                #ouput of selected year
                 textOutput("inputyear"),
+                #tabs
                 tabsetPanel(
-                        tabPanel("Map", htmlOutput("map")), 
-                        tabPanel("Dataset", htmlOutput("table")),
-                        tabPanel("Summary", HTML(
+                                   tabPanel("Summary", HTML(
                                         "<h4>This application displays the World Mobile-cellular subscriptions per 100 inhabitants values</h4>
                                          <br>
                                          <b>Data Source:</b>
@@ -31,9 +34,11 @@ shinyUI(pageWithSidebar(
                                          <br>
                                          <br>
                                          <b>Code:</b>
-                                         <a href='http://google.fr' target='_blank'>Published in my GitHub repository</a>
+                                         <a href='https://github.com/SofianHamiti/MobileSubscriptions' target='_blank'>Published in my GitHub repository</a>
                                         ")
-                                )
+                                ),
+                                tabPanel("Map", htmlOutput("map")), 
+                                tabPanel("Dataset", htmlOutput("table"))
                 )
                 
         )
